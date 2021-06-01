@@ -13,12 +13,16 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ $default-branch, $protected-branches ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ $default-branch ]
+    branches:
+      - main
+  pull_request:    
+    branches: 
+      - main
   schedule:
-    - cron: $cron-weekly
+    - cron: '* 23 * * *'
+  paths-ignore:
+      - '**/*.md'
+      - '**/*.txt'
 
 jobs:
   analyze:
@@ -32,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ $detected-codeql-languages ]
+        language: [ 'javascript', 'typescript', 'csharp' ]
         # CodeQL supports [ $supported-codeql-languages ]
         # Learn more:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
