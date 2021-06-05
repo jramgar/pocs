@@ -5,10 +5,11 @@
  * @tags equals
  *       test
  *       boolean
+ * @kind problem
  */
 
 import csharp
 
 from EqualityOperation eq
 where eq.getAnOperand() instanceof BoolLiteral
-select eq
+select eq, "My custom query example for DotNet2020"
