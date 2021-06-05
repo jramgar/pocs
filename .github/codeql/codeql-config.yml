@@ -3,6 +3,4 @@ name: "My CodeQL config"
 queries:
   - uses: security-and-quality
   - uses: security-extended
-
-query:
-  - uses: ./.github/codeql/basic-csharp.ql
+  - uses: ./.github/codeql/my-custom-queries
